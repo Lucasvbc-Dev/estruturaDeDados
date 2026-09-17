@@ -1,4 +1,4 @@
-package ListaEstatica;
+package Lista;
 
 /**
 metodos que tenho que implementar: add(int elemento), add(int posicao, int elemento), size(), clear(),
@@ -8,20 +8,20 @@ contains(int elemento), remove(Integer elemento), remove(int posicao),
 
 public class ListaEstatica {
 
-    private int[] v;
+    private Object[] v;
     private int cont;
 
     public ListaEstatica(int n) {
-        v = new int[n];
+        v = new Object[n];
         cont = 0;
     }
 
-    public void add(int elemento) {
-        v[cont] = elemento;
+    public void add(Object elemento) {
+        v[cont] = equals(elemento);
         cont++;
     }
 
-    public void addTudo(int posicao, int elemento) {
+    public void add(int posicao, int elemento) {
         for (int i = 0; i > posicao; i++) {
             v[i] = v[i - 1];
         }
@@ -33,11 +33,11 @@ public class ListaEstatica {
         return cont;
     }
 
-    public int clear() {
-        return cont = 0;
+    public void clear() {
+         cont = 0;
     }
 
-    public boolean contains(int elemento) {
+    public boolean contains(Object elemento) {
         for (int i = 0; i < cont; i++) {
             if (v[i] == elemento) {
                 return true;
@@ -45,6 +45,7 @@ public class ListaEstatica {
         }
             return false;
     }
+
 
     public void remove(int elemento){
         v[cont] = elemento;
@@ -57,11 +58,11 @@ public class ListaEstatica {
         }
     }
 
-    public int get(int elemento){
-        return v[elemento];
+    public Object get(int posicao){
+        return v[posicao];
     }
 
-    public int indexOf(int elemento){
+    public int indexOf(Object elemento){
         for (int i = 0; i < cont; i++) {
             if (v[i] == elemento){
                 return i;
@@ -75,6 +76,14 @@ public class ListaEstatica {
             System.out.print(v[i] + " ");
 
         System.out.println();
+    }
+
+    public void show(){
+        for (int i = 0; i < cont; i++) {
+            System.out.println(v[i] + " ");
+
+            System.out.println();
+        }
     }
 }
 
